@@ -48,10 +48,10 @@ public class AddNewDriveDocument extends HttpServlet {
 		        .build();
 		
 		File fileMetadata = new File();
-		fileMetadata.setId(newDocumentName + ".docx");
+		fileMetadata.setTitle(newDocumentName + ".docx");
 		fileMetadata.setMimeType("application/vnd.google-apps.document");
 		File file =  drive.files().insert(fileMetadata)
-		        .setFields("id, parents")
+		        .setFields("name")
 		        .execute(); 
 	}
 
