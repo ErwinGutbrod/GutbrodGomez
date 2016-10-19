@@ -7,6 +7,35 @@
 <title>Insert title here</title>
 </head>
 <body>
+<%!
+String[] myStringArray = new String[]{"zzz.tar","bb.java","ar.js"};
+%>
+<div> 
+	<span> Lista de archivos en la raiz de su Google drive</span>
+</div>
+
+<div>
+	<table width="59%" border="1">
+	<%
+	                 for(int i = 1; i<= myStringArray.length ;i++)
+	                    { %>
+	 <tr>
+	 
+	                 
+	                     <td>
+	                     <%= myStringArray[i] %>
+	                     </td>
+	                                 
+	                </tr>
+	      <% 
+	                    }
+	                %>  
+
+	</table>
+</div>
+
+
+
 
 </body>
 </html>
