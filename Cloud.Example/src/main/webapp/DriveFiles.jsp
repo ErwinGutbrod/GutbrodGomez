@@ -13,8 +13,8 @@
 <div style="margin-bottom: 25px; margin-top: 43px; margin-left: 20px;" class="form-group">
 	<form action="AddNewDriveDocument">
 		<div class="form-group">
-		  <label for="usr">Nuevo documento:</label>
-		  <input type="text" class="form-control" id="newDocument" style="width: 17%;">
+		  <label for="newDocument">Nuevo documento:</label>
+		  <input type="text" class="form-control" name="newDocument" id="newDocument" style="width: 17%;">
 		</div>
 	 	<input type="submit" class="btn btn-success" value="Crear">
 	 </form>
