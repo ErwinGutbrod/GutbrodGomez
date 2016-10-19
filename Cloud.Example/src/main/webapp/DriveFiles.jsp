@@ -16,7 +16,7 @@
 		  <label for="usr">Nuevo documento:</label>
 		  <input type="text" class="form-control" id="usr" style="width: 17%;">
 		</div>
-	 	<input type="submit" class="btn-success" value="Crear">
+	 	<input type="submit" class="btn btn-success" value="Crear">
 	 </form>
 </div>
 
