@@ -52,7 +52,7 @@ public class AddNewDriveDocument extends HttpServlet {
 		fileMetadata.setMimeType("application/vnd.google-apps.document");
 		File file =  drive.files().insert(fileMetadata)
 		        .setFields("name")
-		        .execute(); 
+		        .execute();  
 	}
 
 	/**
