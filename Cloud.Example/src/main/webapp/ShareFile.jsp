@@ -7,16 +7,23 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Share file</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+<script type="text/javascript">
+    init = function() {
+        s = new gapi.drive.share.ShareClient();
+        s.setOAuthToken(${sessionScope.accessToken);
+        s.setItemIds([${sessionScope.newFilename.getId()]);
+    }
+    window.onload = function() {
+        gapi.load('drive-share', init);
+    }
+</script>
 </head>
 <body>
 <div style="margin-bottom: 25px; margin-top: 43px; margin-left: 20px;" class="form-group">
-	<form action="ShareFileWithPerson">
-		<div class="form-group">
-		  <label for="emailToShare">Compartir documento ${sessionScope.newFilename.getTitle()} con: </label>
-		  <input type="text" class="form-control" name="emailToShare" id="emailToShare" placeholder="Ingrese un gmail..." style="width: 17%;">
-		</div>
-	 	<input type="submit" class="btn btn-success" value="Compartir">
-	 </form>
+
+	 <label >Compartir documento ${sessionScope.newFilename.getTitle()}: </label>
+	 <button onclick="s.showSettingsDialog()">Share</button>
 </div>
 </body>
 </html>
