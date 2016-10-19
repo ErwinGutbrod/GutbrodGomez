@@ -13,8 +13,8 @@
         s = new gapi.drive.share.ShareClient();
         var token = ${sessionScope.accessToken};    
         var fileId = ${sessionScope.newFilename.getId()}; 
-        s.setOAuthToken(String(token));
-        s.setItemIds([String(fileId)]);
+        s.setOAuthToken(token.toString());
+        s.setItemIds([fileId.toString()]);
     }
     window.onload = function() {
         gapi.load('drive-share', init);
