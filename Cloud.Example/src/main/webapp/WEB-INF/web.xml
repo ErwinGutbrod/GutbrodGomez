@@ -10,7 +10,6 @@
     <servlet-name>DriveRootFilesServlet</servlet-name>
     <url-pattern>/DriveRootFilesServlet</url-pattern>
   </servlet-mapping>
-  
   <servlet>
     <servlet-name>AddNewDriveDocument</servlet-name>
     <servlet-class>Servlets.AddNewDriveDocument</servlet-class>
@@ -18,6 +17,13 @@
   <servlet-mapping>
     <servlet-name>AddNewDriveDocument</servlet-name>
     <url-pattern>/AddNewDriveDocument</url-pattern>
-    
+  </servlet-mapping>
+  <servlet>
+    <servlet-name>ShareFileWithPerson</servlet-name>
+    <servlet-class>Servlets.ShareFileWithPerson</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ShareFileWithPerson</servlet-name>
+    <url-pattern>/ShareFileWithPerson</url-pattern>
   </servlet-mapping>
 </web-app>
