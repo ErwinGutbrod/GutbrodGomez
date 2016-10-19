@@ -11,7 +11,7 @@
 
 <div>
 	<span> Nuevo documento</span>
-	<form action="NewDocumentServlet">
+	<form action="AddNewDriveDocument">
 	  <input type="text" name="newDocument" placeholder="Nombre"><br>
 	  <input type="submit" value="Crear">
 	</form> 
