@@ -60,7 +60,7 @@ function signInCallback(authResult) {
     // Send the code to the server
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:8080/GutbrodGomezCloudExample/DriveRootFilesServlet',
+      url: 'https://gutbrodgomezcloudexample.herokuapp.com//DriveRootFilesServlet',
       contentType: 'application/octet-stream; charset=utf-8',
       success: function(result) {
     	  window.location.href = "DriveFiles.jsp";
