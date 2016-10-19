@@ -14,7 +14,7 @@
 	<form action="AddNewDriveDocument">
 		<div class="form-group">
 		  <label for="usr">Nuevo documento:</label>
-		  <input type="text" class="form-control" id="usr" style="width: 17%;">
+		  <input type="text" class="form-control" id="newDocument" style="width: 17%;">
 		</div>
 	 	<input type="submit" class="btn btn-success" value="Crear">
 	 </form>
