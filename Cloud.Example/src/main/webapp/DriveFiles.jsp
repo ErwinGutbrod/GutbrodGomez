@@ -10,15 +10,15 @@
 </head>
 <body>
 
-<div style="margin-bottom: 25px; margin-top: 43px; margin-left: 20px;">
-	<span> Nuevo documento</span>
+<div style="margin-bottom: 25px; margin-top: 43px; margin-left: 20px;" class="form-group">
 	<form action="AddNewDriveDocument">
+	  <label for="newDoc">Nuevo documento:</label>
 	  <input type="text" name="newDocument" placeholder="Nombre"><br>
 	  <input type="submit" class="btn-success" value="Crear">
 	</form> 
 </div>
 
-<div class="table-responsive">
+<div class="table-responsive" style="margin-left: 115px">
 	<table border="1"class="table-striped ">
 		<span>Lista de archivos en el ROOT de drive:</span>
 		<c:forEach items="${sessionScope.fileNameList}" var="name">
