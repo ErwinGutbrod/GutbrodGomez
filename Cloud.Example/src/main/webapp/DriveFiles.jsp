@@ -8,12 +8,15 @@
 <title>Insert title here</title>
 </head>
 <body>
+<table border="1">
 
 <c:forEach items="${sessionScope.fileNameList}" var="name">
     <tr>      
         <td>${name}</td>
     </tr>
 </c:forEach>
+
+</table>
 
 
 </body>
