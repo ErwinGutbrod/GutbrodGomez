@@ -10,6 +10,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleAuthorizationCodeTokenRequest;
 import com.google.api.client.googleapis.auth.oauth2.GoogleClientSecrets;
@@ -43,6 +44,7 @@ public class DriveRootFilesServlet extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		HttpSession session = request.getSession(true);
 		// (Receive authCode via HTTPS POST)
 		StringBuffer jb = new StringBuffer();
 		  String line = null;
@@ -80,6 +82,8 @@ public class DriveRootFilesServlet extends HttpServlet {
 		              .execute();
 
 		String accessToken = tokenResponse.getAccessToken();
+		
+		session.setAttribute("accessToken", accessToken);
 
 		// Use access token to call API
 		GoogleCredential credential = new GoogleCredential().setAccessToken(accessToken);
@@ -126,6 +130,7 @@ public class DriveRootFilesServlet extends HttpServlet {
 		        fleNames.add(result.get(i).getTitle());
 		        System.out.println(fleNames.get(i));
 		      }
+			session.setAttribute("fileNameList", fleNames);
 		  }
 
 

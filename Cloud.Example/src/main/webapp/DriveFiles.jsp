@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -7,34 +8,12 @@
 <title>Insert title here</title>
 </head>
 <body>
-<%!
-String[] myStringArray = new String[]{"zzz.tar","bb.java","ar.js"};
-%>
-<div> 
-	<span> Lista de archivos en la raiz de su Google drive</span>
-</div>
 
-<div>
-	<table width="59%" border="1">
-	<%
-	                 for(int i = 0; i< myStringArray.length ;i++)
-	                    { %>
-	 <tr>
-	 
-	                 
-	                     <td>
-	                     <%= myStringArray[i] %>
-	                     </td>
-	                                 
-	                </tr>
-	      <% 
-	                    }
-	                %>  
-
-	</table>
-</div>
-
-
+<c:forEach items="${sessionScope.fileNameList}" var="name">
+    <tr>      
+        <td>${name}</td>
+    </tr>
+</c:forEach>
 
 
 </body>
