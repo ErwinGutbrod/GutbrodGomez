@@ -8,6 +8,18 @@
 <title>Drive Files Manager</title>
 </head>
 <body>
+
+<div>
+	<span> Nuevo documento</span>
+	<form action="NewDocumentServlet">
+	  <input type="text" name="newDocument" placeholder="Nombre"><br>
+	  <input type="submit" value="Crear">
+	</form> 
+</div>
+
+
+
+
 <table border="1">
 <span>Lista de archivos en el ROOT de drive:</span>
 <c:forEach items="${sessionScope.fileNameList}" var="name">
