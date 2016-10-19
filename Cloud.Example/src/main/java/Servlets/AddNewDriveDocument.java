@@ -1,7 +1,9 @@
 package Servlets;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Collections;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,7 +16,9 @@ import com.google.api.client.http.FileContent;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.Drive;
+import com.google.api.services.drive.Drive.Files;
 import com.google.api.services.drive.model.File;
+import com.google.api.services.drive.model.ParentReference;
 
 /**
  * Servlet implementation class AddNewDriveDocument
@@ -47,12 +51,18 @@ public class AddNewDriveDocument extends HttpServlet {
 		        .setApplicationName("GutbrodGomez")
 		        .build();
 		
+		
 		File fileMetadata = new File();
-		fileMetadata.setTitle(newDocumentName + ".docx");
+		fileMetadata.setTitle(newDocumentName);
 		fileMetadata.setMimeType("application/vnd.google-apps.document");
-		File file =  drive.files().insert(fileMetadata)
-		        .setFields("name")
-		        .execute();  
+		
+		List<ParentReference> parents = new ArrayList<ParentReference>();
+        ParentReference fileParent = new ParentReference();
+        fileParent.setId("root");
+        parents.add(fileParent);
+        fileMetadata.setParents(parents);
+        
+		File file =  drive.files().insert(fileMetadata).execute();  
 	}
 
 	/**
