@@ -17,7 +17,7 @@ String[] myStringArray = new String[]{"zzz.tar","bb.java","ar.js"};
 <div>
 	<table width="59%" border="1">
 	<%
-	                 for(int i = 0; i<= myStringArray.length ;i++)
+	                 for(int i = 0; i< myStringArray.length ;i++)
 	                    { %>
 	 <tr>
 	 
