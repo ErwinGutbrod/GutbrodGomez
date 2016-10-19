@@ -15,6 +15,12 @@
       <scope>test</scope>
     </dependency>
     <dependency>
+      <groupId>javax.servlet</groupId>
+      <artifactId>servlet-api</artifactId>
+      <version>2.4</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
   		<groupId>com.google.api-client</groupId>
   		<artifactId>google-api-client</artifactId>
   		<version>1.20.0</version>
@@ -39,6 +45,11 @@
   		<artifactId>google-api-client-jackson2</artifactId>
   		<version>1.20.0</version>
 	</dependency>
+	<dependency>
+      <groupId>com.google.apis</groupId>
+      <artifactId>google-api-services-drive</artifactId>
+      <version>v2-rev241-1.22.0</version>
+    </dependency>
   </dependencies>
   <build>
     <finalName>Cloud.Example</finalName>
@@ -64,6 +75,18 @@
                 </execution>
             </executions>
         </plugin>
+        <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-war-plugin</artifactId>
+        <version>2.3</version>
+        <configuration>      <!-- Se añade esto en la configuracion -->
+          <archive>
+            <manifest>
+              <addClasspath>false</addClasspath>
+            </manifest>
+          </archive>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 </project>
