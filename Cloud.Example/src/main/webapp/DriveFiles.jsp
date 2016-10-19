@@ -6,29 +6,30 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Drive Files Manager</title>
+<link href="css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
 
-<div>
+<div style="margin-bottom: 25px; margin-top: 43px; margin-left: 20px;">
 	<span> Nuevo documento</span>
 	<form action="AddNewDriveDocument">
 	  <input type="text" name="newDocument" placeholder="Nombre"><br>
-	  <input type="submit" value="Crear">
+	  <input type="submit" class="btn-success" value="Crear">
 	</form> 
 </div>
 
+<div class="table-responsive">
+	<table border="1"class="table-striped ">
+		<span>Lista de archivos en el ROOT de drive:</span>
+		<c:forEach items="${sessionScope.fileNameList}" var="name">
+		    <tr>      
+		        <td>${name}</td>
+		    </tr>
+		</c:forEach>
 
+	</table>
 
-
-<table border="1">
-<span>Lista de archivos en el ROOT de drive:</span>
-<c:forEach items="${sessionScope.fileNameList}" var="name">
-    <tr>      
-        <td>${name}</td>
-    </tr>
-</c:forEach>
-
-</table>
+</div>
 
 
 </body>
