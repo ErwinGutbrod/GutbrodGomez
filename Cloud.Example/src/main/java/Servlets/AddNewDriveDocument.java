@@ -18,6 +18,7 @@ import com.google.api.client.json.jackson2.JacksonFactory;
 import com.google.api.services.drive.Drive;
 import com.google.api.services.drive.Drive.Files;
 import com.google.api.services.drive.model.File;
+import com.google.api.services.drive.model.FileList;
 import com.google.api.services.drive.model.ParentReference;
 
 /**
@@ -66,7 +67,23 @@ public class AddNewDriveDocument extends HttpServlet {
 		
 		session.setAttribute("newFilename", file);
 		
-		response.sendRedirect("ShareFile.jsp");
+		List<String> fleNames = new ArrayList<String>();
+		   List<File> result = new ArrayList<File>();
+		    Files.List requestListFiles = drive
+                 .files()
+                 .list()
+                 .setQ("'root' in parents  and trashed=false");
+		    try {
+		        FileList files = requestListFiles.execute();
+		        result.addAll(files.getItems());
+		        System.out.println(result);
+		        requestListFiles.setPageToken(files.getNextPageToken());
+		      } catch (IOException e) {
+		        System.out.println("An error occurred: " + e);
+		        requestListFiles.setPageToken(null);
+		      }
+		session.setAttribute("fileList", result);
+		response.sendRedirect("DriveFiles.jsp");
 	}
 
 	/**
