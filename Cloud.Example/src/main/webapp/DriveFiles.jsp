@@ -7,6 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
 <title>Drive Files Manager</title>
 <link href="css/bootstrap.min.css" rel="stylesheet">
+<script type="text/javascript" src="https://apis.google.com/js/api.js"></script>
+<script type="text/javascript">
+    init = function() {
+        s = new gapi.drive.share.ShareClient(); 
+        s.setOAuthToken('${sessionScope.accessToken}');
+        
+    }
+    window.onload = function() {
+        gapi.load('drive-share', init);
+    }
+</script>
 </head>
 <body>
 
@@ -23,9 +34,10 @@
 <div class="table-responsive" style="margin-left: 115px">
 	<table border="1"class="table-striped ">
 		<span>Lista de archivos en el ROOT de drive:</span>
-		<c:forEach items="${sessionScope.fileNameList}" var="name">
+		<c:forEach items="${sessionScope.fileList}" var="file">
 		    <tr>      
-		        <td>${name}</td>
+		        <td>${file.getTitle()}</td>
+		        <td><button onclick="s.setItemIds(['${file.getId()}']);s.showSettingsDialog();">Share</button></td>
 		    </tr>
 		</c:forEach>
 

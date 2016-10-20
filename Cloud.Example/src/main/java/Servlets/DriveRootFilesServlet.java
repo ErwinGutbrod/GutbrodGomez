@@ -130,7 +130,7 @@ public class DriveRootFilesServlet extends HttpServlet {
 		        fleNames.add(result.get(i).getTitle());
 		        System.out.println(fleNames.get(i));
 		      }
-			session.setAttribute("fileNameList", fleNames);
+			session.setAttribute("fileList", result);
 		  }
 
 
