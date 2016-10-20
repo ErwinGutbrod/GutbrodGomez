@@ -21,6 +21,15 @@
 </head>
 <body>
 
+<a href="#" onclick="signOut();">Salir de Google</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+    });
+  }
+</script>
+
 <div style="margin-bottom: 25px; margin-top: 43px; margin-left: 20px;" class="form-group">
 	<form action="AddNewDriveDocument">
 		<div class="form-group">
@@ -44,7 +53,7 @@
 		    <tr>
 		    	<td><img src="${file.getIconLink()}"></img></td>      
 		        <td><a href="${file.getAlternateLink()}">${file.getTitle()}</a></td>
-		        <td><button onclick="s.setItemIds(['${file.getId()}']);s.showSettingsDialog();">Share</button></td>
+		        <td><button onclick="s.setItemIds(['${file.getId()}']);s.showSettingsDialog();">Compartir</button></td>
 		    </tr>
 		</c:forEach>
 

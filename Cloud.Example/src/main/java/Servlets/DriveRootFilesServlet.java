@@ -93,19 +93,9 @@ public class DriveRootFilesServlet extends HttpServlet {
 		        .build();
 		//File file = drive.files().get("root").execute();
 
-		// Get profile info from ID token
-		GoogleIdToken idToken = tokenResponse.parseIdToken();
-		GoogleIdToken.Payload payload = idToken.getPayload();
-		String userId = payload.getSubject();  // Use this value as a key to identify a user.
-		String email = payload.getEmail();
-		boolean emailVerified = Boolean.valueOf(payload.getEmailVerified());
-		String name = (String) payload.get("name");
-		String pictureUrl = (String) payload.get("picture");
-		String locale = (String) payload.get("locale");
-		String familyName = (String) payload.get("family_name");
-		String givenName = (String) payload.get("given_name");
+
 		
-		List<String> fleNames = new ArrayList<String>();
+
 		   List<File> result = new ArrayList<File>();
 		    Files.List requestListFiles = drive
                     .files()
@@ -125,10 +115,6 @@ public class DriveRootFilesServlet extends HttpServlet {
 		    } while (requestListFiles.getPageToken() != null &&
 		    		requestListFiles.getPageToken().length() > 0);
 
-			for(int i=0; i<result.size(); i++){
-		        fleNames.add(result.get(i).getTitle());
-		        System.out.println(fleNames.get(i));
-		      }
 			session.setAttribute("fileList", result);
 		  }
 

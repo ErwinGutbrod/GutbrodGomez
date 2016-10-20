@@ -43,7 +43,7 @@
                     
                         <div class="panel-body" >
 
-						<button id="signinButton">Sign in with Google</button>
+						<button id="signinButton">Ingresar Con Google</button>
 					<script>
   $('#signinButton').click(function() {
     // signInCallback defined in step 6.
