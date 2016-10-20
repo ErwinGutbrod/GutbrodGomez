@@ -31,15 +31,15 @@
 	 </form>
 </div>
 
-<div class="table-responsive" style="margin-left: 115px">
+<div class="table-responsive" style="margin-left: 200px">
 	<table border="1"class="table-striped ">
 		<span>Lista de archivos en el ROOT de drive:</span>
 		<c:forEach items="${sessionScope.fileList}" var="file">
-			<th>
-				<td>Tipo</td>
-				<td>Nombre</td>
-				<td>Opciones</td>
-			</th>
+			<tr>
+				<th>Tipo</th>
+				<th>Nombre</th>
+				<th>Opciones</th>
+			</tr>
 		    <tr>
 		    	<td><img src="${file.getIconLink()}"></img></td>      
 		        <td><a href="${file.getAlternateLink()}">${file.getTitle()}</a></td>
