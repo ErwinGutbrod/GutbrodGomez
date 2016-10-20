@@ -36,7 +36,7 @@
 		<span>Lista de archivos en el ROOT de drive:</span>
 		<c:forEach items="${sessionScope.fileList}" var="file">
 		    <tr>      
-		        <td>${file.getTitle()}</td>
+		        <td><a href="${file.getAlternateLink()}">${file.getTitle()}</a><</td>
 		        <td><button onclick="s.setItemIds(['${file.getId()}']);s.showSettingsDialog();">Share</button></td>
 		    </tr>
 		</c:forEach>

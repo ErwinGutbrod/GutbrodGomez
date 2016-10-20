@@ -115,7 +115,6 @@ public class DriveRootFilesServlet extends HttpServlet {
 		    do {
 		      try {
 		        FileList files = requestListFiles.execute();
-
 		        result.addAll(files.getItems());
 		        System.out.println(result);
 		        requestListFiles.setPageToken(files.getNextPageToken());
